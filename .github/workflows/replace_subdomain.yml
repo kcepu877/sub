@@ -26,10 +26,10 @@ jobs:
     - name: Run Python script to replace subdomain
       run: python replace_subdomain.py
 
-    - name: Commit changes to wrangler.toml and index.js
+    - name: Commit changes to wrangler.toml and _worker.js
       run: |
         git config --global user.name "GitHub Actions"
         git config --global user.email "actions@github.com"
-        git add wrangler.toml index.js subdomain.yml
+        git add wrangler.toml _worker.js subdomain.yml
         git commit -m "Update subdomain"
         git push
