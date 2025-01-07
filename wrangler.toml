@@ -15,38 +15,38 @@ pattern = "ns1.bmkg.xyz"
 custom_domain = true
 
 [[routes]]
-pattern = "tp2.bmkg.xyz"
+pattern = "lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "ava.game.naver.com.tp2.bmkg.xyz"
+pattern = "ava.game.naver.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "graph.instagram.com.tp2.bmkg.xyz"
+pattern = "graph.instagram.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "quiz.int.vidio.com.tp2.bmkg.xyz"
+pattern = "quiz.int.vidio.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "live.iflix.com.tp2.bmkg.xyz"
+pattern = "live.iflix.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "support.zoom.us.tp2.bmkg.xyz"
+pattern = "support.zoom.us.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "blog.webex.com.tp2.bmkg.xyz"
+pattern = "blog.webex.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "investors.spotify.com.tp2.bmkg.xyz"
+pattern = "investors.spotify.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "cache.netflix.com.tp2.bmkg.xyz"
+pattern = "cache.netflix.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "zaintest.vuclip.com.tp2.bmkg.xyz"
+pattern = "zaintest.vuclip.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "io.ruangguru.com.tp2.bmkg.xyz"
+pattern = "io.ruangguru.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "api.midtrans.com.tp2.bmkg.xyz"
+pattern = "api.midtrans.com.lbr498kd.bmkg.xyz"
 custom_domain = true

@@ -93,22 +93,22 @@ function generateUUIDv4() {
                     // sub1
                     if (type === 'vless') {
                         if (wildcard) {
-                            urlString = `vless://${uuid}@${wildcard}:443?encryption=none&type=ws&host=${wildcard}tp2.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=${wildcard}tp2.bmkg.xyz#(${wildcard})${country}+${provider}`;
+                            urlString = `vless://${uuid}@${wildcard}:443?encryption=none&type=ws&host=${wildcard}lbr498kd.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=${wildcard}lbr498kd.bmkg.xyz#(${wildcard})${country}+${provider}`;
                         } else {
-                            urlString = `vless://${uuid}@tp2.bmkg.xyz:443?encryption=none&type=ws&host=tp2.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=tp2.bmkg.xyz#${country}+${provider}`;
+                            urlString = `vless://${uuid}@lbr498kd.bmkg.xyz:443?encryption=none&type=ws&host=lbr498kd.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=lbr498kd.bmkg.xyz#${country}+${provider}`;
                         }
                     } else if (type === 'trojan') {
                         if (wildcard) {
-                            urlString = `trojan://${uuid}@${wildcard}:443?encryption=none&type=ws&host=${wildcard}tp2.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=${wildcard}tp2.bmkg.xyz#(${wildcard})${country}+${provider}`;
+                            urlString = `trojan://${uuid}@${wildcard}:443?encryption=none&type=ws&host=${wildcard}lbr498kd.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=${wildcard}lbr498kd.bmkg.xyz#(${wildcard})${country}+${provider}`;
                         } else {
-                            urlString = `trojan://${uuid}@tp2.bmkg.xyz:443?encryption=none&type=ws&host=tp2.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=tp2.bmkg.xyz#${country}+${provider}`;
+                            urlString = `trojan://${uuid}@lbr498kd.bmkg.xyz:443?encryption=none&type=ws&host=lbr498kd.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=lbr498kd.bmkg.xyz#${country}+${provider}`;
                         }
                     } else if (type === 'ss') {
                         const ssBase64 = btoa('onEto5d2d2a2c5Z3b2E9sbLAAe6bYmD3v8l8fGVbt34='); // Base64 encode SS password (change with your actual password)
                         if (wildcard) {
-                            urlString = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${wildcard}:443?encryption=none&type=ws&host=${wildcard}tp2.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=${wildcard}tp2.bmkg.xyz#(${wildcard})${country}+${provider}`;
+                            urlString = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${wildcard}:443?encryption=none&type=ws&host=${wildcard}lbr498kd.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=${wildcard}lbr498kd.bmkg.xyz#(${wildcard})${country}+${provider}`;
                         } else {
-                            urlString = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@tp2.bmkg.xyz:443?encryption=none&type=ws&host=tp2.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=tp2.bmkg.xyz#${country}+${provider}`;
+                            urlString = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@lbr498kd.bmkg.xyz:443?encryption=none&type=ws&host=lbr498kd.bmkg.xyz&path=%2F${ip}-${port}&security=tls&sni=lbr498kd.bmkg.xyz#${country}+${provider}`;
                         }
                     }
                 } else if (countryParam2) {
