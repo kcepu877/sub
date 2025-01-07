@@ -48,7 +48,7 @@ def read_subdomain_from_yaml(yaml_file):
 def main():
     yaml_file = 'subdomain.yml'
     toml_file = 'wrangler.toml'
-    html_file = '_worker.js'
+    html_file = 'index.js'
 
     # Cek apakah subdomain sudah ada dari YAML (subdomain terakhir)
     last_subdomain = read_subdomain_from_yaml(yaml_file)
