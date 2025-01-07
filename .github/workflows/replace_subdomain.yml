@@ -1,0 +1,35 @@
+name: Replace Subdomain Weekly
+
+on:
+  schedule:
+    - cron: '0 0 * * 0' # Jalankan setiap minggu pada pukul 00:00 UTC pada hari Minggu
+  workflow_dispatch:
+
+jobs:
+  replace-subdomain:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install pyyaml
+
+    - name: Run Python script to replace subdomain
+      run: python replace_subdomain.py
+
+    - name: Commit changes to wrangler.toml and index.html
+      run: |
+        git config --global user.name "GitHub Actions"
+        git config --global user.email "actions@github.com"
+        git add wrangler.toml index.html subdomain.yml
+        git commit -m "Update subdomain"
+        git push
