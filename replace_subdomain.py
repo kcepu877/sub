@@ -22,7 +22,7 @@ def replace_subdomain_in_toml(toml_file, new_subdomain):
     with open(toml_file, 'w') as file:
         file.writelines(updated_lines)
 
-# Fungsi untuk mengganti subdomain "tp2.bmkg.xyz" dengan subdomain acak di index.html
+# Fungsi untuk mengganti subdomain "tp2.bmkg.xyz" dengan subdomain acak di _worker.js
 def replace_subdomain_in_html(html_file, new_subdomain):
     with open(html_file, 'r') as file:
         content = file.read()
@@ -48,7 +48,7 @@ def read_subdomain_from_yaml(yaml_file):
 def main():
     yaml_file = 'subdomain.yml'
     toml_file = 'wrangler.toml'
-    html_file = 'index.js'
+    html_file = '_worker.js'
 
     # Cek apakah subdomain sudah ada dari YAML (subdomain terakhir)
     last_subdomain = read_subdomain_from_yaml(yaml_file)
@@ -57,7 +57,7 @@ def main():
     if not last_subdomain:
         last_subdomain = generate_random_subdomain()
 
-    # Ganti subdomain di wrangler.toml dan index.html
+    # Ganti subdomain di wrangler.toml dan _worker.js
     replace_subdomain_in_toml(toml_file, last_subdomain)
     replace_subdomain_in_html(html_file, last_subdomain)
 
