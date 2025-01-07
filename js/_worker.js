@@ -1,7 +1,7 @@
 import { connect } from "cloudflare:sockets";
 
 // Variables
-const rootDomain = "cepu.us.kg"; // Ganti dengan domain utama kalian
+const rootDomain = "bmkg.xyz"; // Ganti dengan domain utama kalian
 const serviceName = "tp1"; // Ganti dengan nama workers kalian
 const apiKey = ""; // Ganti dengan Global API key kalian (https://dash.cloudflare.com/profile/api-tokens)
 const apiEmail = ""; // Ganti dengan email yang kalian gunakan
