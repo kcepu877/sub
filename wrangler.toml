@@ -45,7 +45,7 @@ custom_domain = true
 pattern = "zaintest.vuclip.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "io.ruangguru.com.lbr498kd.bmkg.xyz"
+pattern = "ads.ruangguru.com.lbr498kd.bmkg.xyz"
 custom_domain = true
 [[routes]]
 pattern = "api.midtrans.com.lbr498kd.bmkg.xyz"
