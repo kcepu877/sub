@@ -1,4 +1,4 @@
-name = "cf" # todo
+name = "sub" # todo
 main = "js/_worker.js"
 compatibility_date = "2024-05-26"
 
@@ -10,76 +10,43 @@ enabled = true
 enabled = true
 
 
+[[routes]]
+pattern = "ns1.bmkg.xyz"
+custom_domain = true
 
 [[routes]]
-pattern = "oeo4c2h7.cepu.us.kg"
+pattern = "tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "ava.game.naver.com.oeo4c2h7.cepu.us.kg"
+pattern = "ava.game.naver.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "graph.instagram.com.oeo4c2h7.cepu.us.kg"
+pattern = "graph.instagram.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "quiz.int.vidio.com.oeo4c2h7.cepu.us.kg"
+pattern = "quiz.int.vidio.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "live.iflix.com.oeo4c2h7.cepu.us.kg"
+pattern = "live.iflix.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "support.zoom.us.oeo4c2h7.cepu.us.kg"
+pattern = "support.zoom.us.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "blog.webex.com.oeo4c2h7.cepu.us.kg"
+pattern = "blog.webex.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "investors.spotify.com.oeo4c2h7.cepu.us.kg"
+pattern = "investors.spotify.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "cache.netflix.com.oeo4c2h7.cepu.us.kg"
+pattern = "cache.netflix.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "zaintest.vuclip.com.oeo4c2h7.cepu.us.kg"
+pattern = "zaintest.vuclip.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "io.ruangguru.com.oeo4c2h7.cepu.us.kg"
+pattern = "io.ruangguru.com.tp2.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "api.midtrans.com.oeo4c2h7.cepu.us.kg"
-custom_domain = true
-[[routes]]
-pattern = "wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "ava.game.naver.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "graph.instagram.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "quiz.int.vidio.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "live.iflix.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "support.zoom.us.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "blog.webex.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "investors.spotify.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "cache.netflix.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "zaintest.vuclip.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "io.ruangguru.com.wong.ndeso.web.id"
-custom_domain = true
-[[routes]]
-pattern = "api.midtrans.com.wong.ndeso.web.id"
+pattern = "api.midtrans.com.tp2.bmkg.xyz"
 custom_domain = true
