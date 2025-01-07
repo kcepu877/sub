@@ -1,5 +1,5 @@
-name = "link" # todo
-main = "_worker.js"
+name = "sub" # todo
+main = "js/_worker.js"
 compatibility_date = "2024-05-26"
 
 
@@ -11,5 +11,43 @@ enabled = true
 
 
 [[routes]]
-pattern = "sub.bmkg.xyz"
+pattern = "ns1.bmkg.xyz"
 custom_domain = true
+
+[[routes]]
+pattern = "tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "ava.game.naver.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "graph.instagram.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "quiz.int.vidio.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "live.iflix.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "support.zoom.us.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "blog.webex.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "investors.spotify.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "cache.netflix.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "zaintest.vuclip.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "io.ruangguru.com.tp2.bmkg.xyz"
+custom_domain = true
+[[routes]]
+pattern = "api.midtrans.com.tp2.bmkg.xyz"
+custom_domain = true
+
