@@ -1,36 +1,12 @@
-import random
-import string
 import os
 import yaml
 
-# Fungsi untuk menghasilkan subdomain acak
-def generate_random_subdomain(length=8):
-    return ''.join(random.choices(string.ascii_lowercase + string.digits, k=length))
-
-# Fungsi untuk mengganti subdomain "tp2.bmkg.xyz" dengan subdomain acak di wrangler.toml
-def replace_subdomain_in_toml(toml_file, new_subdomain):
-    with open(toml_file, 'r') as file:
-        lines = file.readlines()
-
-    # Ganti "tp2.bmkg.xyz" dengan subdomain acak di setiap baris yang mengandung "tp2.bmkg.xyz"
-    updated_lines = []
-    for line in lines:
-        if 'tp2.bmkg.xyz' in line:
-            line = line.replace('tp2.bmkg.xyz', f'{new_subdomain}.bmkg.xyz')
-        updated_lines.append(line)
-
-    with open(toml_file, 'w') as file:
-        file.writelines(updated_lines)
-
-# Fungsi untuk mengganti subdomain "tp2.bmkg.xyz" dengan subdomain acak di _worker.js
-def replace_subdomain_in_html(html_file, new_subdomain):
-    with open(html_file, 'r') as file:
-        content = file.read()
-
-    updated_content = content.replace('tp2.bmkg.xyz', f'{new_subdomain}.bmkg.xyz')
-
-    with open(html_file, 'w') as file:
-        file.write(updated_content)
+# Fungsi untuk membaca daftar subdomain dari file
+def read_subdomain_list(file_path):
+    if os.path.exists(file_path):
+        with open(file_path, 'r') as file:
+            return [line.strip() for line in file if line.strip()]
+    return []
 
 # Fungsi untuk menyimpan subdomain yang digunakan ke file YAML
 def save_subdomain_to_yaml(subdomain, yaml_file):
@@ -45,24 +21,49 @@ def read_subdomain_from_yaml(yaml_file):
             return data.get('subdomain', None)
     return None
 
+# Fungsi untuk mengganti subdomain di wrangler.toml
+def replace_subdomain_in_toml(toml_file, new_subdomain):
+    with open(toml_file, 'r') as file:
+        lines = file.readlines()
+
+    updated_lines = []
+    for line in lines:
+        if 'tp2.bmkg.xyz' in line:
+            line = line.replace('tp2.bmkg.xyz', f'{new_subdomain}.bmkg.xyz')
+        updated_lines.append(line)
+
+    with open(toml_file, 'w') as file:
+        file.writelines(updated_lines)
+
 def main():
     yaml_file = 'subdomain.yml'
     toml_file = 'wrangler.toml'
-    html_file = '_worker.js'
+    list_file = 'subdomain_list.txt'
 
-    # Cek apakah subdomain sudah ada dari YAML (subdomain terakhir)
+    # Baca daftar subdomain dari file
+    subdomain_list = read_subdomain_list(list_file)
+    if not subdomain_list:
+        print("Subdomain list is empty or not found!")
+        return
+
+    # Baca subdomain terakhir dari YAML
     last_subdomain = read_subdomain_from_yaml(yaml_file)
-    
-    # Jika belum ada, buat subdomain baru
-    if not last_subdomain:
-        last_subdomain = generate_random_subdomain()
 
-    # Ganti subdomain di wrangler.toml dan _worker.js
-    replace_subdomain_in_toml(toml_file, last_subdomain)
-    replace_subdomain_in_html(html_file, last_subdomain)
+    # Cari subdomain berikutnya berdasarkan urutan di daftar
+    if last_subdomain and last_subdomain in subdomain_list:
+        current_index = subdomain_list.index(last_subdomain)
+        next_index = (current_index + 1) % len(subdomain_list)
+    else:
+        next_index = 0  # Jika belum ada subdomain terakhir, mulai dari yang pertama
+
+    next_subdomain = subdomain_list[next_index]
+
+    # Ganti subdomain di wrangler.toml
+    replace_subdomain_in_toml(toml_file, next_subdomain)
 
     # Simpan subdomain yang digunakan ke file YAML
-    save_subdomain_to_yaml(last_subdomain, yaml_file)
+    save_subdomain_to_yaml(next_subdomain, yaml_file)
+    print(f"Subdomain updated to: {next_subdomain}")
 
 if __name__ == "__main__":
     main()
