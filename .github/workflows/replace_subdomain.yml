@@ -38,8 +38,8 @@ jobs:
 
     - name: Check if files are updated
       run: |
-        echo "Checking if 'ns1.cepu.us.kg' is removed from wrangler.toml and index.html"
-        if ! grep -q "ns1.cepu.us.kg" wrangler.toml; then
+        echo "Checking if 'ns1.bmkg.xyz' is removed from wrangler.toml and index.html"
+        if ! grep -q "ns1.bmkg.xyz" wrangler.toml; then
           echo "wrangler.toml updated successfully"
         else
           echo "wrangler.toml not updated"
