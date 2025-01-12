@@ -1,5 +1,6 @@
 import os
 import yaml
+import re
 
 # Fungsi untuk membaca daftar subdomain dari file
 def read_subdomain_list(file_path):
@@ -22,22 +23,35 @@ def read_subdomain_from_yaml(yaml_file):
     return None
 
 # Fungsi untuk mengganti subdomain di wrangler.toml
-def replace_subdomain_in_toml(toml_file, new_subdomain):
+def replace_subdomain_in_toml(toml_file, new_subdomain, old_subdomain):
     with open(toml_file, 'r') as file:
         lines = file.readlines()
 
     updated_lines = []
     for line in lines:
-        if 'tp2.bmkg.xyz' in line:
-            line = line.replace('tp2.bmkg.xyz', f'{new_subdomain}.bmkg.xyz')
+        # Hanya mengganti subdomain yang sesuai (contoh: xxx.cepu.us.kg) dengan subdomain baru
+        if old_subdomain in line:
+            line = re.sub(r'\b' + re.escape(old_subdomain) + r'\b', new_subdomain, line)
         updated_lines.append(line)
 
     with open(toml_file, 'w') as file:
         file.writelines(updated_lines)
 
+# Fungsi untuk mengganti subdomain di index.html
+def replace_subdomain_in_html(html_file, new_subdomain, old_subdomain):
+    with open(html_file, 'r') as file:
+        content = file.read()
+
+    # Hanya mengganti subdomain yang sesuai (contoh: xxx.cepu.us.kg) dengan subdomain baru
+    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.cepu\.us\.kg', new_subdomain + '.cepu.us.kg', content)
+
+    with open(html_file, 'w') as file:
+        file.write(updated_content)
+
 def main():
     yaml_file = 'subdomain.yml'
     toml_file = 'wrangler.toml'
+    html_file = 'index.html'
     list_file = 'subdomain_list.txt'
 
     # Baca daftar subdomain dari file
@@ -49,17 +63,23 @@ def main():
     # Baca subdomain terakhir dari YAML
     last_subdomain = read_subdomain_from_yaml(yaml_file)
 
-    # Cari subdomain berikutnya berdasarkan urutan di daftar
-    if last_subdomain and last_subdomain in subdomain_list:
-        current_index = subdomain_list.index(last_subdomain)
-        next_index = (current_index + 1) % len(subdomain_list)
-    else:
-        next_index = 0  # Jika belum ada subdomain terakhir, mulai dari yang pertama
+    if last_subdomain is None:
+        print("No subdomain found in subdomain.yml!")
+        return
 
+    # Pastikan subdomain terakhir ada dalam daftar
+    if last_subdomain not in subdomain_list:
+        print(f"Last subdomain '{last_subdomain}' not in subdomain list!")
+        return
+
+    # Cari subdomain berikutnya berdasarkan urutan di daftar
+    current_index = subdomain_list.index(last_subdomain)
+    next_index = (current_index + 1) % len(subdomain_list)
     next_subdomain = subdomain_list[next_index]
 
-    # Ganti subdomain di wrangler.toml
-    replace_subdomain_in_toml(toml_file, next_subdomain)
+    # Ganti subdomain di wrangler.toml dan index.html
+    replace_subdomain_in_toml(toml_file, next_subdomain, last_subdomain)
+    replace_subdomain_in_html(html_file, next_subdomain, last_subdomain)
 
     # Simpan subdomain yang digunakan ke file YAML
     save_subdomain_to_yaml(next_subdomain, yaml_file)
