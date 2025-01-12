@@ -22,24 +22,36 @@ def read_subdomain_from_yaml(yaml_file):
             return data.get('subdomain', None)
     return None
 
-# Fungsi untuk mengganti subdomain di _worker.js
-def replace_subdomain_in_workerjs(workerjs_file, new_subdomain, old_subdomain):
-    with open(workerjs_file, 'r') as file:
+# Fungsi untuk mengganti subdomain di wrangler.toml
+def replace_subdomain_in_toml(toml_file, new_subdomain, old_subdomain):
+    with open(toml_file, 'r') as file:
         lines = file.readlines()
 
     updated_lines = []
     for line in lines:
         # Hanya mengganti subdomain yang sesuai (contoh: xxx.bmkg.xyz) dengan subdomain baru
         if old_subdomain in line:
-            line = re.sub(r'\b' + re.escape(old_subdomain) + r'\.bmkg\.xyz', new_subdomain + '.bmkg.xyz', line)
+            line = re.sub(r'\b' + re.escape(old_subdomain) + r'\b', new_subdomain, line)
         updated_lines.append(line)
 
-    with open(workerjs_file, 'w') as file:
+    with open(toml_file, 'w') as file:
         file.writelines(updated_lines)
+
+# Fungsi untuk mengganti subdomain di index.html
+def replace_subdomain_in_html(html_file, new_subdomain, old_subdomain):
+    with open(html_file, 'r') as file:
+        content = file.read()
+
+    # Hanya mengganti subdomain yang sesuai (contoh: xxx.bmkg.xyz) dengan subdomain baru
+    updated_content = re.sub(r'\b' + re.escape(old_subdomain) + r'\.bmkg\.xyz', new_subdomain + '.bmkg.xyz', content)
+
+    with open(html_file, 'w') as file:
+        file.write(updated_content)
 
 def main():
     yaml_file = 'subdomain.yml'
-    workerjs_file = '_worker.js'
+    toml_file = 'wrangler.toml'
+    html_file = 'index.html'
     list_file = 'subdomain_list.txt'
 
     # Baca daftar subdomain dari file
@@ -65,8 +77,9 @@ def main():
     next_index = (current_index + 1) % len(subdomain_list)
     next_subdomain = subdomain_list[next_index]
 
-    # Ganti subdomain di _worker.js
-    replace_subdomain_in_workerjs(workerjs_file, next_subdomain, last_subdomain)
+    # Ganti subdomain di wrangler.toml dan index.html
+    replace_subdomain_in_toml(toml_file, next_subdomain, last_subdomain)
+    replace_subdomain_in_html(html_file, next_subdomain, last_subdomain)
 
     # Simpan subdomain yang digunakan ke file YAML
     save_subdomain_to_yaml(next_subdomain, yaml_file)
