@@ -11,42 +11,42 @@ enabled = true
 
 
 [[routes]]
-pattern = "ns1.bmkg.xyz"
+pattern = "ns1.freecf.xyz"
 custom_domain = true
 
 [[routes]]
-pattern = "bmkg.bmkg.xyz"
+pattern = "freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "ava.game.naver.com.bmkg.bmkg.xyz"
+pattern = "ava.game.naver.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "graph.instagram.com.bmkg.bmkg.xyz"
+pattern = "graph.instagram.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "quiz.int.vidio.com.bmkg.bmkg.xyz"
+pattern = "quiz.int.vidio.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "live.iflix.com.bmkg.bmkg.xyz"
+pattern = "live.iflix.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "support.zoom.us.bmkg.bmkg.xyz"
+pattern = "support.zoom.us.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "blog.webex.com.bmkg.bmkg.xyz"
+pattern = "blog.webex.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "investors.spotify.com.bmkg.bmkg.xyz"
+pattern = "investors.spotify.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "cache.netflix.com.bmkg.bmkg.xyz"
+pattern = "cache.netflix.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "zaintest.vuclip.com.bmkg.bmkg.xyz"
+pattern = "zaintest.vuclip.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "ads.ruangguru.com.bmkg.bmkg.xyz"
+pattern = "ads.ruangguru.com.freecf.freecf.xyz"
 custom_domain = true
 [[routes]]
-pattern = "api.midtrans.com.bmkg.bmkg.xyz"
+pattern = "api.midtrans.com.freecf.freecf.xyz"
 custom_domain = true
