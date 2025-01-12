@@ -44,7 +44,7 @@ jobs:
         else
           echo "wrangler.toml not updated"
         fi
-        if ! grep -q "ns1.cepu.us.kg" index.html; then
+        if ! grep -q "ns1.bmkg.xyz" index.html; then
           echo "index.html updated successfully"
         else
           echo "index.html not updated"
