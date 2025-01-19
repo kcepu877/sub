@@ -15,38 +15,38 @@ pattern = "ns1.bmkg.xyz"
 custom_domain = true
 
 [[routes]]
-pattern = "woless.bmkg.xyz"
+pattern = "gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "ava.game.naver.com.woless.bmkg.xyz"
+pattern = "ava.game.naver.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "graph.instagram.com.woless.bmkg.xyz"
+pattern = "graph.instagram.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "quiz.int.vidio.com.woless.bmkg.xyz"
+pattern = "quiz.int.vidio.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "live.iflix.com.woless.bmkg.xyz"
+pattern = "live.iflix.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "support.zoom.us.woless.bmkg.xyz"
+pattern = "support.zoom.us.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "blog.webex.com.woless.bmkg.xyz"
+pattern = "blog.webex.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "investors.spotify.com.woless.bmkg.xyz"
+pattern = "investors.spotify.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "cache.netflix.com.woless.bmkg.xyz"
+pattern = "cache.netflix.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "zaintest.vuclip.com.woless.bmkg.xyz"
+pattern = "zaintest.vuclip.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "ads.ruangguru.com.woless.bmkg.xyz"
+pattern = "ads.ruangguru.com.gratisan.bmkg.xyz"
 custom_domain = true
 [[routes]]
-pattern = "api.midtrans.com.woless.bmkg.xyz"
+pattern = "api.midtrans.com.gratisan.bmkg.xyz"
 custom_domain = true
