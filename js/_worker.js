@@ -345,7 +345,7 @@ export default {
         }
       }
 
-      const targetReverseProxy = env.REVERSE_PROXY_TARGET || "kang.cepu.us.kg";
+      const targetReverseProxy = env.REVERSE_PROXY_TARGET || "server1.ndeso.web.id";
       return await reverseProxy(request, targetReverseProxy);
     } catch (err) {
       return new Response(`An error occurred: ${err.toString()}`, {
