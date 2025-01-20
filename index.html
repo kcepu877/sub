@@ -89,16 +89,17 @@
     /* Animasi Loading */
 
       .loading-icon {
-  font-size: 24px; /* Sesuaikan ukuran sesuai kebutuhan */
+    color: #4CAF50; /* Warna untuk ikon spinner */
+    font-size: 30px;
 }
 
-.loading-icon1 {
-  border: 3px dotted #3498db; /* Border biru dengan gaya titik-titik */
-  border-radius: 50%; /* Membuat border berbentuk lingkaran */
-  width: 40px; /* Lebar elemen */
-  height: 40px; /* Tinggi elemen */
-  animation: spin 1s linear infinite; /* Animasi berputar */
-  }
+.loading-text {
+    font-size: 18px;
+    color: #FF5722; /* Warna untuk teks 'Loading...' */
+    margin-left: 10px;
+    font-weight: bold; /* Menambahkan ketebalan pada teks */
+}
+
 
 @keyframes spin1 {
   0% {
@@ -1590,7 +1591,8 @@ function uuidv4() {
   // Fungsi untuk mengecek status proxy
   function checkProxyStatus(ip, port, statusElement) {
   // Menampilkan indikator loading saat memeriksa status
-  statusElement.innerHTML = '<i class="fas fa-spinner fa-spin loading-icon"></i>';
+  statusElement.innerHTML = '<i class="fas fa-spinner fa-spin loading-icon"></i> <span class="loading-text">Loading...</span>
+';
 
   const startTime = performance.now(); // Mencatat waktu awal
   const StatusURL = `https://ns1.bmkg.xyz/check?target=${ip}:${port}`;
