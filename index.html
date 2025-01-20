@@ -1605,7 +1605,7 @@ function uuidv4() {
       // Memeriksa status proxy dan menampilkannya sesuai dengan status
       if (data.proxyip) {
         statusElement.innerHTML = `
-          <strong><span class="check-icon">&#10004;</span>&nbsp;<span style="color: gold;">${latency} ms</span></strong>
+          <strong><span class="check-icon">&#9889;</span>&nbsp;<span style="color: green;">${latency} ms</span></strong>
         `;
         statusElement.style.color = 'green';
       } else {
