@@ -1590,7 +1590,7 @@ function uuidv4() {
   // Fungsi untuk mengecek status proxy
   function checkProxyStatus(ip, port, statusElement) {
   // Menampilkan indikator loading saat memeriksa status
-  statusElement.innerHTML = '<i class="fas fa-spinner fa-spin loading-icon"></i>Loading...';
+  statusElement.innerHTML = '<strong><i class="fas fa-spinner fa-spin loading-icon"></i>Loading...</strong>';
   statusElement.style.color = 'green';
     
   const startTime = performance.now(); // Mencatat waktu awal
@@ -1677,11 +1677,6 @@ function uuidv4() {
         // Create a row with innerHTML to make it more manageable
         const row = document.createElement('tr');
         row.innerHTML = `
-          <td><i class="fas fa-spinner fa-spin loading-icon"></i>
-          <i class="fas fa-circle-notch fa-spin loading-icon"></i>
-          <i class="fas fa-sync fa-spin loading-icon"></i>
-          <i class="fas fa-cog fa-spin loading-icon"></i>
-</td>
           <td><div class="flag-container">
             <span>${isp} || ${id}</span>
             <span class="flag-circle flag-icon flag-icon-${id.toLowerCase()}"></span>
