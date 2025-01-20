@@ -48,5 +48,8 @@ custom_domain = true
 pattern = "ads.ruangguru.com.server.ndeso.web.id"
 custom_domain = true
 [[routes]]
+pattern = "io.ruangguru.com.server.ndeso.web.id"
+custom_domain = true
+[[routes]]
 pattern = "api.midtrans.com.server.ndeso.web.id"
 custom_domain = true
