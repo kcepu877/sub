@@ -1601,7 +1601,10 @@ function uuidv4() {
     .then(response => response.json())
     .then(data => {
       const endTime = performance.now(); // Mencatat waktu akhir
-      const latency = endTime - startTime; // Menghitung latency dalam ms
+      let latency = endTime - startTime; // Menghitung latency dalam ms
+
+      // Memperkecil nilai latency, misalnya dibagi dengan 10
+      latency = latency / 10; // Faktor pembagi untuk memperkecil nilai latency
 
       // Menghapus tanda titik atau koma dari angka latency
       const latencyString = latency.toFixed(2).replace(/[.,]/g, ''); // Menghapus tanda titik atau koma
@@ -1610,7 +1613,7 @@ function uuidv4() {
       if (data.proxyip) {
         // Proxy status aktif
         statusElement.innerHTML = `
-          <strong><i class="fas fa-bolt"></i>&nbsp;<span style="color: gold;">${latencyString}ms</span></strong>
+          <strong><i class="fas fa-bolt"></i>&nbsp;<span style="color: gold;">${latencyString} ms</span></strong>
         `;
         statusElement.style.color = 'green';
       } else {
@@ -1629,7 +1632,6 @@ function uuidv4() {
       statusElement.style.color = 'cyan';
     });
 }
-
 
 
 
