@@ -106,15 +106,61 @@
 }
 
   .loading-icon {
-    width: 40px;
-    height: 40px;
-    background-color: #3498db;
-    animation: spinSquare 1s linear infinite;
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid transparent;
+    border-top: 2px solid #3498db; /* Warna garis lingkaran */
+    animation: rotateCircle 1.5s linear infinite;
   }
 
-  @keyframes spinSquare {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  .loading-icon::before, .loading-icon::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #3498db;
+    border-radius: 50%;
+    animation: moveCircle 1.5s linear infinite;
+  }
+
+  .loading-icon::before {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+  }
+
+  .loading-icon::after {
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%) translateX(-100%);
+    animation-delay: 0.3s;
+  }
+
+  @keyframes rotateCircle {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes moveCircle {
+    0% {
+      transform: translateY(-20px);
+    }
+    25% {
+      transform: translateX(20px);
+    }
+    50% {
+      transform: translateY(20px);
+    }
+    75% {
+      transform: translateX(-20px);
+    }
+    100% {
+      transform: translateY(-20px);
+    }
   }
 .quantum-title {
           font-size: 2rem;
