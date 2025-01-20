@@ -1587,36 +1587,47 @@ function uuidv4() {
   const startTime = performance.now(); // Mencatat waktu awal
   const StatusURL = `https://ns1.bmkg.xyz/check?target=${ip}:${port}`;
 
-  // Menangani fetch dengan optimasi
-  fetch(StatusURL, { cache: 'no-store', keepalive: true }) // Mengoptimalkan dengan cache dan keepalive
+  const controller = new AbortController();  // Membuat controller untuk abort
+  const timeoutId = setTimeout(() => controller.abort(), 3000); // Timeout 3 detik untuk membatalkan request jika terlalu lama
+
+  // Menggunakan fetch dengan AbortController untuk membatalkan permintaan jika terlalu lama
+  fetch(StatusURL, {
+    signal: controller.signal,
+    cache: 'no-store', // Menghindari penggunaan cache
+    keepalive: true, // Menjaga koneksi tetap hidup
+  })
     .then(response => response.json())
     .then(data => {
+      clearTimeout(timeoutId); // Hentikan timeout jika berhasil menerima respons
       const endTime = performance.now(); // Mencatat waktu akhir
       const latency = (endTime - startTime).toFixed(2); // Menghitung latency dalam ms
 
       // Memeriksa status proxy dan menampilkannya sesuai dengan status
       if (data.proxyip) {
-        // Proxy status aktif
         statusElement.innerHTML = `
           <strong><span class="check-icon">&#10004;</span>&nbsp;<span style="color: gold;">${latency} ms</span></strong>
         `;
         statusElement.style.color = 'green';
       } else {
-        // Proxy status mati
         statusElement.innerHTML = `
           <strong><span class="error-icon">&#10006;</span> DEAD</strong>
         `;
         statusElement.style.color = 'red';
       }
     })
-    .catch(() => {
-      // Menangani kesalahan jika API tidak merespon atau terjadi masalah jaringan
-      statusElement.innerHTML = `
-        <strong><span class="error-icon">&#10006;</span> Error</strong>
-      `;
+    .catch((error) => {
+      clearTimeout(timeoutId); // Hentikan timeout jika terjadi kesalahan
+      if (error.name === 'AbortError') {
+        // Menangani timeout atau pembatalan
+        statusElement.innerHTML = `<strong><span class="error-icon">&#10006;</span> Timeout</strong>`;
+      } else {
+        // Menangani kesalahan lainnya
+        statusElement.innerHTML = `<strong><span class="error-icon">&#10006;</span> Error</strong>`;
+      }
       statusElement.style.color = 'cyan';
     });
 }
+
 
   // Fungsi untuk render proxies dengan pagination
   function renderProxies(proxies, proxyList, pagination, itemsPerPage) {
