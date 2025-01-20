@@ -1687,8 +1687,11 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <br><hr/>VLESS<br>
-      PATH: /${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS</button>
+      <hr/>VLESS SERVER1<br>
+      PATH: /${ip}-${port}<br>
+      <button class="copy-vless">COPY VLESS SERVER1</button>
+      <br><hr/>VLESS SERVER2<br>
+      PATH: /${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS SERVER2</button>
       <hr/>
       <button class="button8" onclick="hidePopup('vtls${ip}-${port}')">Close</button> 
 </div>
@@ -1698,9 +1701,12 @@ function uuidv4() {
       <div class="popup-content"><hr/><br>
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
-      » IP:PORT      : ${ip}-${port}<br>   
-      <br><hr/>TROJAN<br>
-      PATH: /${ip}-${port}<br><button class="copy-trojan-clash877">COPY</button> 
+      » IP:PORT      : ${ip}-${port}<br>
+      <hr/>TROJAN SERVER1<br>
+      PATH: /${ip}-${port}<br>
+      <button class="copy-trojan">COPY TROJAN SERVER1</button>
+      <br><hr/>TROJAN SERVER2<br>
+      PATH: /${ip}-${port}<br><button class="copy-trojan-clash877">COPY SERVER2 SERVER2</button> 
       <hr/>
       <button class="button8" onclick="hidePopup('trojan${ip}-${port}')">Close</button> 
     </div>
@@ -1711,9 +1717,12 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <br><hr/>SHADOWSOCK<br>
+      <hr/>SHADOWSOCK SERVER1<br>
       PATH: /${ip}-${port}<br>
-      <button class="copy-ss1">COPY SHADOWSOCK</button>
+      <button class="copy-ss">COPY SHADOWSOCK SERVER1</button>
+      <br><hr/>SHADOWSOCK SERVER2<br>
+      PATH: /${ip}-${port}<br>
+      <button class="copy-ss1">COPY SHADOWSOCK SERVER2</button>
      <hr/> <button class="button8" onclick="hidePopup('ss${ip}-${port}')">Close</button> 
     </div>
     </div></td>
@@ -1726,11 +1735,11 @@ function uuidv4() {
     const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const VLESS = `vless://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${id}${cons}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const VLESS = `vless://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(VLESS);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY VLESS SIMPLE SUKSES!',
+      text: 'COPY VLESS SERVER1 SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1742,14 +1751,14 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
 });
 
 row.querySelector('.copy-vless-clash').addEventListener('click', () => {
-    const host = "server.ndeso.web.id";
+    const host = "wong.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
     const VLESSC = `vless://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
   navigator.clipboard.writeText(VLESSC);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY VLESS SUKSES!',
+      text: 'COPY VLESS SERVER2 SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1764,11 +1773,11 @@ row.querySelector('.copy-trojan').addEventListener('click', () => {
     const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const TROJAN = `trojan://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${id}${cons}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const TROJAN = `trojan://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(TROJAN);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY TROJAN SIMPLE SUKSES!',
+      text: 'COPY TROJAN SERVER1 SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1781,14 +1790,14 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
 
 row.querySelector('.copy-trojan-clash877').addEventListener('click', () => {
     const selectedService = row.querySelector('.service-selector').value || "xvp.bmkg.xyz";
-    const host = "server.ndeso.web.id";
+    const host = "wong.ndeso.web.id";
     const domain = selectedService === host ? host : `${selectedService}.${host}`;
     const TROJANC877 = `trojan://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     
     navigator.clipboard.writeText(TROJANC877);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY TROJAN SUKSES!',
+      text: 'COPY TROJAN SERVER2 SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1803,11 +1812,11 @@ row.querySelector('.copy-ss').addEventListener('click', () => {
     const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const SS = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${id}${cons}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const SS = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(SS);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY SHADOWSOCK SIMPLE SUKSES!',
+      text: 'COPY SHADOWSOCK SERVER1 SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1819,14 +1828,14 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
 });
 
 row.querySelector('.copy-ss1').addEventListener('click', () => {
-    const host = "server.ndeso.web.id";
+    const host = "wong.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
     const SS1 = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(SS1);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY SHADOWSOCK SUKSES!',
+      text: 'COPY SHADOWSOCK SERVER2 SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
