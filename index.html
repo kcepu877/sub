@@ -1689,7 +1689,7 @@ function uuidv4() {
       » IP:PORT      : ${ip}-${port}<br>
       
       <br><hr/>VLESS<br>
-      PATH: /${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS RIBET</button>
+      PATH: /${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS</button>
       <hr/>
       <button class="button8" onclick="hidePopup('vtls${ip}-${port}')">Close</button> 
 </div>
@@ -1702,7 +1702,7 @@ function uuidv4() {
       » IP:PORT      : ${ip}-${port}<br>
       
       <br><hr/>TROJAN<br>
-      PATH: /${ip}-${port}<br><button class="copy-trojan-clash877">COPY RIBET RIBET</button> 
+      PATH: /${ip}-${port}<br><button class="copy-trojan-clash877">COPY</button> 
       <hr/>
       <button class="button8" onclick="hidePopup('trojan${ip}-${port}')">Close</button> 
     </div>
@@ -1716,7 +1716,7 @@ function uuidv4() {
 
       <br><hr/>SHADOWSOCK<br>
       PATH: /${ip}-${port}<br>
-      <button class="copy-ss1">COPY SHADOWSOCK RIBET</button>
+      <button class="copy-ss1">COPY SHADOWSOCK</button>
      <hr/> <button class="button8" onclick="hidePopup('ss${ip}-${port}')">Close</button> 
     </div>
     </div></td>
@@ -1752,7 +1752,7 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
   navigator.clipboard.writeText(VLESSC);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY VLESS RIBET SUKSES!',
+      text: 'COPY VLESS SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1791,7 +1791,7 @@ row.querySelector('.copy-trojan-clash877').addEventListener('click', () => {
     navigator.clipboard.writeText(TROJANC877);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY TROJAN RIBET SUKSES!',
+      text: 'COPY TROJAN SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1829,7 +1829,7 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
     navigator.clipboard.writeText(SS1);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY SHADOWSOCK RIBET SUKSES!',
+      text: 'COPY SHADOWSOCK SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
