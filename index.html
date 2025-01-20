@@ -1603,17 +1603,14 @@ function uuidv4() {
       const endTime = performance.now(); // Mencatat waktu akhir
       const latency = endTime - startTime; // Menghitung latency dalam ms
 
-      // Memformat latency dengan tanda titik sebagai pemisah desimal
-      const latencyString = latency.toLocaleString('id-ID', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      });
+      // Menghapus tanda titik atau koma dari angka latency
+      const latencyString = latency.toFixed(2).replace(/[.,]/g, ''); // Menghapus tanda titik atau koma
 
       // Memeriksa status proxy dan menampilkannya sesuai dengan status
       if (data.proxyip) {
         // Proxy status aktif
         statusElement.innerHTML = `
-          <strong><i class="fas fa-bolt"></i>&nbsp;<span style="color: gold;">${latencyString} ms</span></strong>
+          <strong><i class="fas fa-bolt"></i>&nbsp;<span style="color: gold;">${latencyString}ms</span></strong>
         `;
         statusElement.style.color = 'green';
       } else {
@@ -1632,6 +1629,7 @@ function uuidv4() {
       statusElement.style.color = 'cyan';
     });
 }
+
 
 
 
