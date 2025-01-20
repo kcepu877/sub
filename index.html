@@ -1580,46 +1580,42 @@ function uuidv4() {
   .catch(error => console.error("Error fetching proxy data:", error));
 
   // Fungsi untuk mengecek status proxy
-  async function checkProxy() {
-  let i = 0;
-  while (true) {
-    const pingElement = document.getElementById(`ping-${i}`);
-    if (!pingElement) return; // Keluar dari loop jika elemen tidak ditemukan
+  function checkProxyStatus(ip, port, statusElement) {
+  // Menampilkan indikator loading saat memeriksa status
+  statusElement.innerHTML = '<div class="loading-icon"></div>';
 
-    const target = pingElement.textContent
-      .split(" ")
-      .find((ipPort) => ipPort.includes(":"));
+  const startTime = performance.now(); // Mencatat waktu awal
+  const StatusURL = `https://ns1.bmkg.xyz/check?target=${ip}:${port}`;
 
-    if (!target) {
-      i++;
-      continue; // Jika tidak ada target, lanjutkan ke elemen berikutnya
-    }
+  // Menangani fetch dengan optimasi
+  fetch(StatusURL, { cache: 'no-store', keepalive: true }) // Mengoptimalkan dengan cache dan keepalive
+    .then(response => response.json())
+    .then(data => {
+      const endTime = performance.now(); // Mencatat waktu akhir
+      const latency = (endTime - startTime).toFixed(2); // Menghitung latency dalam ms
 
-    pingElement.textContent = "Checking...";
-    const [ip, port] = target.split(":");
-
-    try {
-      const response = await fetch(`https://ns1.bmkg.xyz/check?target=${ip}:${port}`);
-      if (response.status === 200) {
-        const jsonResp = await response.json();
-        pingElement.classList.remove("text-green-600", "text-red-600", "dark:text-white");
-
-        if (jsonResp.proxyip) {
-          pingElement.textContent = `Active ${jsonResp.delay} ms (${jsonResp.colo})`;
-          pingElement.classList.add("text-green-600");
-        } else {
-          pingElement.textContent = "Inactive";
-          pingElement.classList.add("text-red-600");
-        }
+      // Memeriksa status proxy dan menampilkannya sesuai dengan status
+      if (data.proxyip) {
+        // Proxy status aktif
+        statusElement.innerHTML = `
+          <strong><span class="check-icon">&#10004;</span>&nbsp;<span style="color: gold;">${latency} ms</span></strong>
+        `;
+        statusElement.style.color = 'green';
       } else {
-        pingElement.textContent = "Check Failed!";
+        // Proxy status mati
+        statusElement.innerHTML = `
+          <strong><span class="error-icon">&#10006;</span> DEAD</strong>
+        `;
+        statusElement.style.color = 'red';
       }
-    } catch (error) {
-      pingElement.textContent = "Error!";
-    }
-
-    i++;
-  }
+    })
+    .catch(() => {
+      // Menangani kesalahan jika API tidak merespon atau terjadi masalah jaringan
+      statusElement.innerHTML = `
+        <strong><span class="error-icon">&#10006;</span> Error</strong>
+      `;
+      statusElement.style.color = 'cyan';
+    });
 }
 
   // Fungsi untuk render proxies dengan pagination
