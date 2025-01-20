@@ -88,22 +88,15 @@
       }
     /* Animasi Loading */
 .loading-icon {
-  border: 4px solid #f3f3f3; /* Light grey */
-  border-top: 4px solid #3498db; /* Blue */
-  border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+            font-weight: bold;
+            color: #007bff;
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
 
   
   
@@ -1604,7 +1597,7 @@ function uuidv4() {
       if (data.proxyip) {
         // Proxy status aktif
         statusElement.innerHTML = `
-          <strong><span class="check-icon">&#10004;</span>&nbsp;<span style="color: gold;">${latencyString}ms</span></strong>
+          <strong><span class="check-icon"><i class="fas fa-bolt"></i></span>&nbsp;<span style="color: gold;">${latencyString}ms</span></strong>
         `;
         statusElement.style.color = 'gold';
       } else {
