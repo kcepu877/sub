@@ -87,7 +87,7 @@
         font-family: 'Space Grotesk', sans-serif;
       }
     /* Animasi Loading */
-.loading-icon1 {
+.loading-icon {
   border: 4px solid #f3f3f3; /* Light grey */
   border-top: 4px solid #3498db; /* Blue */
   border-radius: 50%;
@@ -96,7 +96,7 @@
   animation: spin 1s linear infinite;
 }
 
-@keyframes spin1 {
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -105,63 +105,8 @@
   }
 }
 
-  .loading-icon {
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 2px solid transparent;
-    border-top: 2px solid #3498db; /* Warna garis lingkaran */
-    animation: rotateCircle 1.5s linear infinite;
-  }
-
-  .loading-icon::before, .loading-icon::after {
-    content: '';
-    position: absolute;
-    width: 10px;
-    height: 10px;
-    background-color: #3498db;
-    border-radius: 50%;
-    animation: moveCircle 1.5s linear infinite;
-  }
-
-  .loading-icon::before {
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    animation-delay: 0s;
-  }
-
-  .loading-icon::after {
-    top: 50%;
-    left: 100%;
-    transform: translateY(-50%) translateX(-100%);
-    animation-delay: 0.3s;
-  }
-
-  @keyframes rotateCircle {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-
-  @keyframes moveCircle {
-    0% {
-      transform: translateY(-20px);
-    }
-    25% {
-      transform: translateX(20px);
-    }
-    50% {
-      transform: translateY(20px);
-    }
-    75% {
-      transform: translateX(-20px);
-    }
-    100% {
-      transform: translateY(-20px);
-    }
-  }
+  
+  
 .quantum-title {
           font-size: 2rem;
           margin-bottom: 1rem;
@@ -1645,46 +1590,40 @@ function uuidv4() {
   const startTime = performance.now(); // Mencatat waktu awal
   const StatusURL = `https://ns1.bmkg.xyz/check?target=${ip}:${port}`;
 
-  const controller = new AbortController();  // Membuat controller untuk abort
-  const timeoutId = setTimeout(() => controller.abort(), 3000); // Timeout 3 detik untuk membatalkan request jika terlalu lama
-
-  // Menggunakan fetch dengan AbortController untuk membatalkan permintaan jika terlalu lama
-  fetch(StatusURL, {
-    signal: controller.signal,
-    cache: 'no-store', // Menghindari penggunaan cache
-    keepalive: true, // Menjaga koneksi tetap hidup
-  })
+  // Mengambil data dari API untuk memeriksa status proxy
+  fetch(StatusURL)
     .then(response => response.json())
     .then(data => {
-      clearTimeout(timeoutId); // Hentikan timeout jika berhasil menerima respons
       const endTime = performance.now(); // Mencatat waktu akhir
-      const latency = (endTime - startTime).toFixed(2); // Menghitung latency dalam ms
+      const latency = endTime - startTime; // Menghitung latency dalam ms
+
+      // Mengonversi latency menjadi string tanpa titik atau koma
+      const latencyString = Math.round(latency).toString();
 
       // Memeriksa status proxy dan menampilkannya sesuai dengan status
       if (data.proxyip) {
+        // Proxy status aktif
         statusElement.innerHTML = `
-          <strong><span class="check-icon">&#9889;</span>&nbsp;<span style="color: green;">(${latency}) ms</span></strong>
+          <strong><span class="check-icon">&#10004;</span>&nbsp;<span style="color: gold;">${latencyString} ms</span></strong>
         `;
         statusElement.style.color = 'green';
       } else {
+        // Proxy status mati
         statusElement.innerHTML = `
           <strong><span class="error-icon">&#10006;</span> DEAD</strong>
         `;
         statusElement.style.color = 'red';
       }
     })
-    .catch((error) => {
-      clearTimeout(timeoutId); // Hentikan timeout jika terjadi kesalahan
-      if (error.name === 'AbortError') {
-        // Menangani timeout atau pembatalan
-        statusElement.innerHTML = `<strong><span class="error-icon">&#10006;</span> Timeout</strong>`;
-      } else {
-        // Menangani kesalahan lainnya
-        statusElement.innerHTML = `<strong><span class="error-icon">&#10006;</span> Error</strong>`;
-      }
+    .catch(() => {
+      // Menangani kesalahan jika API tidak merespon atau terjadi masalah jaringan
+      statusElement.innerHTML = `
+        <strong><span class="error-icon">&#10006;</span> Error</strong>
+      `;
       statusElement.style.color = 'cyan';
     });
 }
+
 
 
   // Fungsi untuk render proxies dengan pagination
