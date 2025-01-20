@@ -1604,9 +1604,9 @@ function uuidv4() {
       if (data.proxyip) {
         // Proxy status aktif
         statusElement.innerHTML = `
-          <strong><span class="check-icon">&#10004;</span>&nbsp;<span style="color: gold;">${latencyString} ms</span></strong>
+          <strong><span class="check-icon">&#10004;</span>&nbsp;<span style="color: gold;">${latencyString}ms</span></strong>
         `;
-        statusElement.style.color = 'green';
+        statusElement.style.color = 'gold';
       } else {
         // Proxy status mati
         statusElement.innerHTML = `
