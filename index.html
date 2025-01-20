@@ -1072,7 +1072,6 @@ SHOW LINK SUB</button></center>
     <table>
       <thead>
         <tr>   
-          <th>CEK</th>
           <th>ISP || COUNTRY</th>
           <th>STATUS</th>
           <th>WILDCARD</th>
@@ -1592,7 +1591,8 @@ function uuidv4() {
   function checkProxyStatus(ip, port, statusElement) {
   // Menampilkan indikator loading saat memeriksa status
   statusElement.innerHTML = '<i class="fas fa-spinner fa-spin loading-icon"></i>Loading...';
-
+  statusElement.style.color = 'green';
+    
   const startTime = performance.now(); // Mencatat waktu awal
   const StatusURL = `https://ns1.bmkg.xyz/check?target=${ip}:${port}`;
 
