@@ -449,7 +449,7 @@ body111 {
 
 
     th {
-      background-color: rgba(37, 36, 36, 1); /* Warna hijau */
+      background-color: rgba(0, 255, 136, 0.1); /* Warna hijau */
       color: white; /* Warna teks putih */
       font-weight: bold;
       padding: 10px;
@@ -462,23 +462,27 @@ body111 {
     td {
       padding: 10px;
       text-align: center;
-      background-color: rgba(37, 36, 36, 1); /* Warna hijau transparan */
+      background-color: rgba(0, 255, 136, 0.03); /* Warna hijau transparan */
       color: #fff; /* Warna teks */
       border-bottom: 1px solid #ddd; /* Garis pembatas antar baris */
       transition: background-color 0.3s ease; /* Efek transisi */
     }
-
+   tr {
+        transition: all 0.3s ease;
+      }
     td:hover {
-      background-color: rgba(115, 115, 115, 1); /* Warna hijau lebih gelap saat dihover */
+      background-color: rgba(0, 255, 136, 0.08); /* Warna hijau lebih gelap saat dihover */
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.1);
     }
 
     tr:nth-child(odd) td {
-      background-color: rgba(64, 64, 64, 1); /* Warna abu terang */
+      background-color: rgba(0, 255, 136, 0.03); /* Warna abu terang */
     }
 
     tr:hover td {
-      background-color: rgba(115, 115, 115, 1); /* Warna latar biru muda saat baris dihover */
+      background-color: rgba(0, 255, 136, 0.08); /* Warna latar biru muda saat baris dihover */
       color: #fff; /* Warna teks saat dihover */
+      box-shadow: 0 5px 15px rgba(0, 255, 136, 0.1);
     }
     .column-1 {
       width: 100px; /* Kolom pertama 30% dari tabel */
