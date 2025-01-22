@@ -22,7 +22,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install pandas  # Install pandas
+          pip install requests  # Instalasi modul requests
 
       - name: Run Proxy Processing Script
         run: |
@@ -32,12 +32,6 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add proxy_ip_port_cleaned.txt  # Menambahkan file hasil proses ke stage
-          git commit -m "Update proxy list"  # Commit perubahan
-          git push  # Push perubahan ke repositori
-          
-      - name: Upload Processed File
-        uses: actions/upload-artifact@v3  # Menggunakan versi terbaru dari actions/upload-artifact
-        with:
-          name: proxy_ip_port_cleaned.txt  # Nama hasil file yang diproses
-          path: proxy_ip_port_cleaned.txt  # Path hasil file yang diproses
+          git add proxy_ip_port_with_id_isp.txt  # Menambahkan hasil file yang telah diproses
+          git commit -m "Add processed proxy file with ID and ISP"
+          git push
