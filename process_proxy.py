@@ -37,7 +37,8 @@ async def process_proxy_file(file_name):
         results = await asyncio.gather(*tasks)
 
     # Memasukkan hasil ke dalam DataFrame
-    df_unique[['ip', 'id', 'isp']] = pd.DataFrame(results, columns=['ip', 'id', 'isp'])
+    id_isp_data = pd.DataFrame(results, columns=['ip', 'id', 'isp'])
+    df_unique = pd.concat([df_unique, id_isp_data[['id', 'isp']]], axis=1)
 
     # Menyimpan hasil ke file TXT
     output_file = 'proxy_ip_port_with_id_isp_async.txt'
