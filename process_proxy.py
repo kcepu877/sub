@@ -1,5 +1,28 @@
 import pandas as pd
 import requests
+import time
+
+# Fungsi untuk mendapatkan ID (kode negara) dan ISP berdasarkan IP
+def get_ip_info(ip, retries=3):
+    api_key = 'a1e6de2e232d4c'  # Ganti dengan API Key Anda
+    url = f"https://ipinfo.io/{ip}/json?token={api_key}"
+    
+    for attempt in range(retries):
+        try:
+            response = requests.get(url)
+            data = response.json()
+            if 'error' in data:
+                print(f"Error for IP {ip}: {data['error']}")
+                return 'Unknown', 'Unknown'
+            country = data.get('country', 'Unknown')  # Kode negara
+            isp = data.get('org', 'Unknown')         # ISP
+            return country, isp
+        except Exception as e:
+            print(f"Error fetching info for IP {ip}: {e}")
+            if attempt < retries - 1:
+                time.sleep(2)  # Tunggu 2 detik sebelum mencoba lagi
+            else:
+                return 'Unknown', 'Unknown'
 
 # Nama file proxy yang diunggah
 file_name = "proxy_ip_port.txt"  # Nama file Anda
@@ -17,18 +40,6 @@ with open(file_name, 'r') as file:
 
 # Membuat DataFrame dengan data yang valid
 df = pd.DataFrame(data, columns=['ip', 'port'])
-
-# Fungsi untuk mendapatkan id (kode negara) dan ISP berdasarkan IP
-def get_ip_info(ip):
-    try:
-        # Menggunakan API ipinfo.io untuk mendapatkan informasi IP
-        response = requests.get(f"https://ipinfo.io/{ip}/json")
-        data = response.json()
-        country = data.get('country', 'Unknown')  # Kode negara
-        isp = data.get('org', 'Unknown')         # ISP
-        return country, isp
-    except Exception as e:
-        return 'Unknown', 'Unknown'
 
 # Menambahkan kolom 'id' dan 'isp' berdasarkan IP
 df[['id', 'isp']] = df['ip'].apply(lambda x: pd.Series(get_ip_info(x)))
