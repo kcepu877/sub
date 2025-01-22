@@ -10,20 +10,20 @@ async def get_ip_info(session, ip):
     url = f"https://ipinfo.io/{ip}/json?token={API_KEY}"
     try:
         async with session.get(url) as response:
-            if response.status != 200:
-                # Jika status tidak 200, kembalikan Unknown
+            # Mengecek apakah status HTTP adalah 200 (OK)
+            if response.status == 200:
+                data = await response.json()
+                country = data.get('country', 'Unknown')  # Kode negara
+                isp = data.get('org', 'Unknown')         # ISP
+
+                # Hapus bagian 'AS' pada ISP jika ada
+                if 'AS' in isp:
+                    isp = isp.split(' ')[1]  # Mengambil bagian setelah 'AS'
+
+                return ip, country, isp
+            else:
                 print(f"Failed to fetch data for IP: {ip}, Status Code: {response.status}")
                 return ip, 'Unknown', 'Unknown'
-            
-            data = await response.json()
-            country = data.get('country', 'Unknown')  # Kode negara
-            isp = data.get('org', 'Unknown')         # ISP
-
-            # Hapus bagian 'AS' pada ISP jika ada
-            if 'AS' in isp:
-                isp = isp.split(' ')[1]  # Mengambil bagian setelah 'AS'
-
-            return ip, country, isp
     except Exception as e:
         print(f"Error fetching data for IP: {ip}, Error: {e}")
         return ip, 'Unknown', 'Unknown'
