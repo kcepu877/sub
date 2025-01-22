@@ -2,28 +2,24 @@ import pandas as pd
 import asyncio
 import aiohttp
 
-# URL template API
-API_URL = "https://p01--boiling-frame--kw6dd7bjv2nr.code.run/check?ip={ip}&host=speed.cloudflare.com&port={port}&tls=true"
-
-# Fungsi untuk mendapatkan informasi dari API
+# Fungsi untuk mendapatkan informasi ID dan ISP menggunakan endpoint API custom
 async def get_ip_info(session, ip, port):
-    url = API_URL.format(ip=ip, port=port)
+    url = f"https://p01--boiling-frame--kw6dd7bjv2nr.code.run/check?ip={ip}&host=speed.cloudflare.com&port={port}&tls=true"
     try:
         async with session.get(url) as response:
             if response.status == 200:
                 data = await response.json()
-                # Ambil data yang relevan dari respons
-                status = data.get("status", "Unknown")
-                isp = data.get("isp", "Unknown")
-                return ip, port, status, isp
+                country = data.get('country', 'Unknown')  # ID Negara
+                isp = data.get('isp', 'Unknown')         # ISP
+                return ip, port, country, isp
             else:
-                return ip, port, "Error", "Unknown"
+                return ip, port, 'Unknown', 'Unknown'
     except Exception as e:
-        return ip, port, "Error", "Unknown"
+        return ip, port, 'Unknown', 'Unknown'
 
 # Fungsi utama untuk memproses file
 async def process_proxy_file(file_name):
-    # Membaca file proxy
+    # Membaca file proxy dengan pengecekan untuk jumlah kolom
     data = []
     with open(file_name, 'r') as file:
         for line in file:
@@ -41,19 +37,19 @@ async def process_proxy_file(file_name):
     async with aiohttp.ClientSession() as session:
         tasks = []
         for _, row in df_unique.iterrows():
-            ip, port = row['ip'], row['port']
+            ip = row['ip']
+            port = row['port']
             tasks.append(get_ip_info(session, ip, port))
 
         # Menunggu hasil dari semua request
         results = await asyncio.gather(*tasks)
 
-    # Menggabungkan hasil ke dalam DataFrame
-    ip_info_df = pd.DataFrame(results, columns=['ip', 'port', 'status', 'isp'])
-    df_final = pd.merge(df_unique, ip_info_df, on=['ip', 'port'], how='left')
+    # Memasukkan hasil ke dalam DataFrame
+    result_df = pd.DataFrame(results, columns=['ip', 'port', 'id', 'isp'])
 
     # Menyimpan hasil ke file TXT
-    output_file = 'proxy_ip_port_with_status_isp.txt'
-    df_final.to_csv(output_file, index=False, sep=',', header=False)
+    output_file = 'proxy_ip_port_with_id_isp_async.txt'  # Mengubah nama file output
+    result_df.to_csv(output_file, index=False, sep=',', header=False)
 
     print(f"File telah diproses dan disimpan di {output_file}")
 
