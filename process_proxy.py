@@ -14,24 +14,17 @@ async def get_ip_info(session, ip):
             data = await response.json()
             country = data.get('country', 'Unknown')  # Kode negara
             isp = data.get('org', 'Unknown')         # ISP
+            # Hapus bagian 'AS' pada ISP jika ada
+            if 'AS' in isp:
+                isp = isp.split(' ')[1]  # Mengambil bagian setelah 'AS'
             return ip, country, isp
     except Exception as e:
         return ip, 'Unknown', 'Unknown'
 
-# Fungsi untuk memproses file dan membersihkan data
+# Fungsi utama untuk memproses file
 async def process_proxy_file(file_name):
-    # Membaca file proxy dengan menangani kesalahan jika format baris salah
-    data = []
-    with open(file_name, 'r') as file:
-        for line in file:
-            parts = line.strip().split(',')
-            if len(parts) == 2:  # Pastikan hanya ada 2 kolom (ip, port)
-                data.append(parts)
-            else:
-                print(f"Skipping invalid line: {line.strip()}")
-
-    # Membuat DataFrame dengan data yang valid
-    df = pd.DataFrame(data, columns=['ip', 'port'])
+    # Membaca file proxy
+    df = pd.read_csv(file_name, delimiter=',', header=None, names=['ip', 'port'])
 
     # Menyaring duplikat berdasarkan kolom 'ip' dan 'port'
     df_unique = df.drop_duplicates(subset=['ip', 'port'], keep='first')
@@ -47,8 +40,7 @@ async def process_proxy_file(file_name):
         results = await asyncio.gather(*tasks)
 
     # Memasukkan hasil ke dalam DataFrame
-    id_isp_data = pd.DataFrame(results, columns=['ip', 'id', 'isp'])
-    df_unique = pd.concat([df_unique, id_isp_data[['id', 'isp']]], axis=1)
+    df_unique[['ip', 'id', 'isp']] = pd.DataFrame(results, columns=['ip', 'id', 'isp'])
 
     # Menyimpan hasil ke file TXT
     output_file = 'proxy_ip_port_with_id_isp_async.txt'
