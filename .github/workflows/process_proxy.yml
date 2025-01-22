@@ -35,6 +35,6 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          git add proxy_ip_port_with_id_isp.txt  # Menambahkan hasil file yang telah diproses
+          git add proxy_ip_port_with_id_isp_async.txt  # Menambahkan hasil file yang telah diproses
           git commit -m "Add processed proxy file with ID and ISP"
           git push
