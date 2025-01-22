@@ -1,0 +1,34 @@
+name: Process Proxy IPs
+
+on:
+  push:
+    paths:
+      - proxy_ip_port.txt   # Trigger action saat ada perubahan pada file ini
+  workflow_dispatch:         # Manual trigger untuk menjalankan proses
+
+jobs:
+  process_proxy:
+    runs-on: ubuntu-latest  # Menjalankan di runner Ubuntu terbaru
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2  # Checkout repositori ke runner
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'  # Menentukan versi Python
+
+      - name: Install Dependencies
+        run: |
+          pip install pandas requests  # Install dependensi yang diperlukan
+
+      - name: Run Proxy Processing Script
+        run: |
+          python process_proxy.py  # Menjalankan skrip Python yang memproses data
+
+      - name: Upload Processed File
+        uses: actions/upload-artifact@v2
+        with:
+          name: proxy_ip_port_with_id_isp.txt  # Menyimpan hasil file yang telah diproses
+          path: proxy_ip_port_with_id_isp.txt
