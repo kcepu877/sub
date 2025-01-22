@@ -24,11 +24,13 @@ jobs:
           python -m pip install --upgrade pip
           pip install requests  # Instalasi modul requests
           pip install pandas   # Instalasi modul pandas
+          pip install requests aiohttp
 
       - name: Run Proxy Processing Script
         run: |
           python process_proxy.py  # Menjalankan skrip Python yang memproses data
-
+     
+        
       - name: Commit and push changes
         run: |
           git config --local user.name "github-actions[bot]"
