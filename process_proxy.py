@@ -3,7 +3,7 @@ import asyncio
 import aiohttp
 
 # Masukkan API key Anda di sini
-API_KEY = 'your_ipapi_key_here'  # Gantilah dengan API key Anda
+API_KEY = '157683ca5f7ec12a96671988855e5b59'  # Gantilah dengan API key Anda
 
 # Fungsi untuk mendapatkan informasi ID dan ISP menggunakan ipapi.com API
 async def get_ip_info(session, ip):
