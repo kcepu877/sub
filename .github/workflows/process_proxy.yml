@@ -12,23 +12,32 @@ jobs:
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2  # Checkout repositori ke runner
+        uses: actions/checkout@v3  # Checkout repositori ke runner
 
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
-          python-version: '3.8'  # Menentukan versi Python
+          python-version: '3.x'  # Menentukan versi Python
 
-      - name: Install Dependencies
+      - name: Install dependencies
         run: |
-          pip install pandas requests  # Install dependensi yang diperlukan
+          python -m pip install --upgrade pip
+          pip install requests  # Install dependensi yang diperlukan
 
       - name: Run Proxy Processing Script
         run: |
           python process_proxy.py  # Menjalankan skrip Python yang memproses data
 
+      - name: Commit and push changes
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git add proxy_ip_port_with_id_isp.txt  # Menambahkan file hasil proses ke stage
+          git commit -m "Update proxy list with ID and ISP"  # Commit perubahan
+          git push  # Push perubahan ke repositori
+          
       - name: Upload Processed File
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3  # Menggunakan versi terbaru dari actions/upload-artifact
         with:
           name: proxy_ip_port_with_id_isp.txt  # Menyimpan hasil file yang telah diproses
           path: proxy_ip_port_with_id_isp.txt
