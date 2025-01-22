@@ -18,10 +18,20 @@ async def get_ip_info(session, ip):
     except Exception as e:
         return ip, 'Unknown', 'Unknown'
 
-# Fungsi utama untuk memproses file
+# Fungsi untuk memproses file dan membersihkan data
 async def process_proxy_file(file_name):
-    # Membaca file proxy
-    df = pd.read_csv(file_name, delimiter=',', header=None, names=['ip', 'port'])
+    # Membaca file proxy dengan menangani kesalahan jika format baris salah
+    data = []
+    with open(file_name, 'r') as file:
+        for line in file:
+            parts = line.strip().split(',')
+            if len(parts) == 2:  # Pastikan hanya ada 2 kolom (ip, port)
+                data.append(parts)
+            else:
+                print(f"Skipping invalid line: {line.strip()}")
+
+    # Membuat DataFrame dengan data yang valid
+    df = pd.DataFrame(data, columns=['ip', 'port'])
 
     # Menyaring duplikat berdasarkan kolom 'ip' dan 'port'
     df_unique = df.drop_duplicates(subset=['ip', 'port'], keep='first')
