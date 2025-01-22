@@ -1,5 +1,4 @@
 import pandas as pd
-import requests
 import asyncio
 import aiohttp
 
@@ -11,14 +10,22 @@ async def get_ip_info(session, ip):
     url = f"https://ipinfo.io/{ip}/json?token={API_KEY}"
     try:
         async with session.get(url) as response:
+            if response.status != 200:
+                # Jika status tidak 200, kembalikan Unknown
+                print(f"Failed to fetch data for IP: {ip}, Status Code: {response.status}")
+                return ip, 'Unknown', 'Unknown'
+            
             data = await response.json()
             country = data.get('country', 'Unknown')  # Kode negara
             isp = data.get('org', 'Unknown')         # ISP
+
             # Hapus bagian 'AS' pada ISP jika ada
             if 'AS' in isp:
                 isp = isp.split(' ')[1]  # Mengambil bagian setelah 'AS'
+
             return ip, country, isp
     except Exception as e:
+        print(f"Error fetching data for IP: {ip}, Error: {e}")
         return ip, 'Unknown', 'Unknown'
 
 # Fungsi utama untuk memproses file
@@ -48,9 +55,13 @@ async def process_proxy_file(file_name):
         results = await asyncio.gather(*tasks)
 
     # Memasukkan hasil ke dalam DataFrame
-    df_unique[['ip', 'id', 'isp']] = pd.DataFrame(results, columns=['ip', 'id', 'isp'])
+    # Mengonversi results menjadi DataFrame dan menggabungkannya dengan df_unique
+    ip_info_df = pd.DataFrame(results, columns=['ip', 'id', 'isp'])
 
-    # Menyimpan hasil ke file TXT
+    # Menggabungkan DataFrame ip_info_df dengan df_unique berdasarkan kolom 'ip'
+    df_unique = df_unique.merge(ip_info_df, on='ip', how='left')
+
+    # Menyimpan hasil ke file TXT tanpa header dan tanpa AS pada ISP
     output_file = 'proxy_ip_port_with_id_isp_async.txt'
     df_unique.to_csv(output_file, index=False, sep=',', header=False)
 
