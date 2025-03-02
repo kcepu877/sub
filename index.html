@@ -2,7 +2,6 @@
 <html>
 <head>
   <meta charset="UTF-8">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FREE | CF | PROXY | LIFETIME</title>
     <meta name="description" content="FREE | CF | PROXY | LIFETIME">
@@ -13,20 +12,20 @@
     <!-- Open Graph Meta Tags untuk SEO Media Sosial -->
     <meta property="og:title" content="FREE | CF | PROXY | LIFETIME">
     <meta property="og:description" content="FREE | CF | PROXY | LIFETIME">
-    <meta property="og:image" content="https://kere.us.kg/img/botvpn.jpg"> <!-- Ganti dengan URL gambar yang sesuai -->
-    <meta property="og:url" content="https://kere.us.kg/img/botvpn.jpg">
+    <meta property="og:image" content="https://bmkg.xyz/img/botvpn.jpg"> <!-- Ganti dengan URL gambar yang sesuai -->
+    <meta property="og:url" content="https://bmkg.xyz/img/botvpn.jpg">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="FREE | CF | PROXY | LIFETIME">
     <meta name="twitter:description" content="FREE | CF | PROXY | LIFETIME">
-    <meta name="twitter:image" content="https://kere.us.kg/img/botvpn.jpg"> <!-- Ganti dengan URL gambar yang sesuai -->
-    <link href="https://kere.us.kg/img/botvpn.jpg" rel="icon" type="image/png">
+    <meta name="twitter:image" content="https://bmkg.xyz/img/botvpn.jpg"> <!-- Ganti dengan URL gambar yang sesuai -->
+    <link href="https://bmkg.xyz/img/botvpn.jpg" rel="icon" type="image/png">
     <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icon-css/css/flag-icon.min.css">
       <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v6.7.1/css/all.css">
-  <style>
+    <style>
 
     :root {
         --primary: #000;
@@ -49,6 +48,61 @@
       100% { color: red; }
     }
 
+	       
+      @keyframes rainbow {
+      0% { color: red; }
+      14% { color: black; }
+      28% { color: black; }
+      42% { color: green; }
+      57% { color: blue; }
+      71% { color: indigo; }
+      85% { color: violet; }
+      100% { color: red; }
+    }
+    @keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-icon {
+  font-size: 40px;
+  animation: rotate 1s linear infinite;
+  color: #f00; /* default color */
+}
+
+.loading-icon:before {
+  content: '\f110'; /* spinner icon */
+  font-family: 'FontAwesome';
+  color: red;
+  animation: spinColors 1.2s linear infinite;
+}
+
+@keyframes spinColors {
+  0% { color: red; }
+  25% { color: yellow; }
+  50% { color: green; }
+  75% { color: blue; }
+  100% { color: purple; }
+}
+      .spinner {
+  border: 4px solid #f3f3f3; /* Light grey */
+  border-top: 4px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  animation: spin 1s linear infinite;
+}
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Space Grotesk', sans-serif;
+      }
     .rainbow-text {
       font-size: 15px;
       font-weight: bold;
@@ -88,8 +142,7 @@
         font-family: 'Space Grotesk', sans-serif;
       }
     /* Animasi Loading */
-
-      .loading-icon {
+ .loading-icon {
     color: #4CAF50; /* Warna untuk ikon spinner */
     font-size: 30px;
 }
@@ -101,18 +154,6 @@
     font-weight: bold; /* Menambahkan ketebalan pada teks */
 }
 
-
-@keyframes spin1 {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-  
-  
 .quantum-title {
           font-size: 2rem;
           margin-bottom: 1rem;
@@ -186,13 +227,10 @@
     outline: none; /* Menghapus garis luar bawaan browser */
 }
 body {
-  background: linear-gradient(135deg, 
-    #1a1a1a, /* Warna gelap awal */
-    #6b2b6b 20%, 
-    #343494 40%, 
-    #236b7d 60%, 
-    #406b23 80%, 
-    #6b5d23);
+  background: url('https://raw.githubusercontent.com/bitzblack/ip/refs/heads/main/shubham-dhage-5LQ_h5cXB6U-unsplash.jpg') no-repeat center center fixed;
+        background-size: cover;
+        justify-content: center;
+        align-items: center;
   background-size: 300% 300%; /* Untuk animasi gradient */
   color: #fff; /* Teks putih agar kontras */
   margin: 0;
@@ -206,6 +244,27 @@ body {
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
+@keyframes moveColors {
+  100% {
+    background-position: -200%; /* Mulai dari luar kiri */
+  }
+  0% {
+    background-position: 200%; /* Bergerak ke kanan */
+  }
+}
+
+.warna-text {
+  font-size: 20px;
+  font-weight: bold;
+  display: inline-block;
+  background: linear-gradient(90deg, red, orange, yellow, green, blue, purple);
+  background-size: 200%;
+  color: transparent;
+  -webkit-background-clip: text;
+  animation: moveColors 5s linear infinite;
+}
+
+
 
     
 body111 {
@@ -300,50 +359,6 @@ body111 {
     .service-selector option {
         padding: 10px;
     }  
-    .container12, .content12 {
-      background-color: rgba(0, 0, 0, 0.82);
-      flex: 1;
-      padding-top: 20px; /* To avoid content being hidden under the header */
-      padding-bottom: 20px;
-      margin-top: 90px;
-      margin-bottom: 30px;/* To avoid content being hidden under the footer */
-      padding-left: 10px;
-      padding-right: 10px;
-      display: flex;
-      flex-direction: column;
-      max-width: 960px;
-      border: 1px solid #fff;
-      border-radius: 10px;
-      align-items: center;
-      position: relative;
-      z-index: 1;
-       }
-
-      .container22, .content22 {
-  background-color: rgba(0, 0, 0, 0.82);
-  flex: 1;
-  padding-top: 20px; /* To avoid content being hidden under the header */
-  padding-bottom: 20px;
-  margin-top: 95px;
-  margin-bottom: 50px; /* To avoid content being hidden under the footer */
-  padding-left: 10px;
-  padding-right: 10px;
-  display: flex;
-  flex-direction: column;
-  max-width: 960px;
-  border: 1px solid #fff;
-  border-radius: 10px;
-  align-items: center;
-  position: relative;
-  z-index: 1;
-
-  /* Tambahkan efek glow */
-  box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), /* Glow putih */
-              0 0 30px rgba(0, 150, 255, 0.5);   /* Glow biru */
-}
-
-
-     
       .container, .content {
   background-color: rgba(0, 0, 0, 0.82);
   flex: 1;
@@ -379,7 +394,76 @@ body111 {
   }
 }
 
-     
+
+	    .navbartedjo {
+    position: fixed;
+    top: 0;
+    left: -80px;
+    width: 80px;
+    background: rgba(0, 0, 0, 0);
+    color: white;
+    padding: 0;
+    transition: left 0.3s;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0);
+    z-index: 999;
+    display: flex;
+    flex-direction: column; /* Menyusun item secara vertikal */
+    justify-content: center; /* Menempatkan item di tengah secara vertikal */
+    align-items: center; /* Menempatkan item di tengah secara horizontal */
+    height: 100vh; /* Membuat navbar setinggi 100% viewport */
+}
+
+
+
+
+      .navbarconten {
+    width: 100%;
+    overflow-x: auto; /* Mengaktifkan scroll horizontal */
+    margin-bottom: 0px;
+    border: 1px solid #000; /* Border dengan warna abu-abu */
+    border-radius: 10px; /* Membuat sudut melengkung */
+    padding: 0px; /* Memberi jarak antara border dan konten */
+    background-color: rgba(0, 0, 0, 0.82); /* Warna latar belakang */
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.6), /* Glow putih */
+              0 0 30px rgba(0, 150, 255, 0.5);   /* Glow biru */
+
+    }
+
+        .navbartedjo a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        .navbartedjo a:hover {
+            background: #575757;
+        }
+        .toggle-btn {
+            position: absolute;
+    top: 50%;
+    left: 100%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0);
+    color: red;
+    border: none;
+    padding: 0px 0px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: left 0.3s;
+    z-index: 1000; /* Pastikan tombol menu di atas navbar */
+        }
+        
+        p {
+            max-width: 800px;
+            margin: 20px auto;
+            line-height: 1.6;
+            text-align: justify;
+        }
+	    .toggle-btn img {
+            width: 20px; /* Ukuran gambar lebih kecil */
+            height: 150px; /* Ukuran gambar lebih kecil */
+        }
      
      .quantum-title {
         font-family: 'Rajdhani', sans-serif;
@@ -449,7 +533,7 @@ body111 {
 
 
 
-    th {
+        th {
       background-color: rgba(0, 255, 136, 0.1); /* Warna hijau */
       color: white; /* Warna teks putih */
       font-weight: bold;
@@ -1077,40 +1161,95 @@ body111 {
     
 
     
+<script>
+        let navbartedjoOpen = false;
 
+        function toggleNavbar() {
+            const navbartedjo = document.getElementById("navbartedjo");
+            const menuBtn = document.getElementById("menu-btn");
+            const img = menuBtn.querySelector('img');
+
+		
+            if (navbartedjoOpen) {
+                navbartedjo.style.left = "-80px";
+                img.src = "https://bmkg.xyz/img/buka.png"; 
+            } else {
+                navbartedjo.style.left = "0";
+                img.src = "https://bmkg.xyz/img/tutup.png"; 
+            }
+
+            navbartedjoOpen = !navbartedjoOpen;
+        }
+    </script>
   <header>
 <h1>FREE CF PROXY LIFETIME</h1>
     </header>
+
+  <div class="navbartedjo" id="navbartedjo">
+        <div class="toggle-btn" id="menu-btn" onclick="toggleNavbar()"><img src="https://bmkg.xyz/img/buka.png" alt="Toggle Menu"></div>
+       <div class="navbarconten">
+	  <div style="display: flex; flex-direction: column; align-items: center;">
+  <span>
+    <a href="https://wa.me/6281335135082" target="_blank" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+      <img src="https://bmkg.xyz/img/mobile.png" alt="menu" width="40">
+    </a>
+  </span>
+  <span>
+    <div onclick="showPopup('sub-link')" style="background: transparent; border: none; padding: 0;">
+      <img src="https://bmkg.xyz/img/linksub.png" alt="menu" width="40" style="margin-top: 5px;">
+    </div>
+  </span>
+  
+  <span>
+    <a href="https://t.me/seaker877" target="_blank" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+      <img src="https://bmkg.xyz/img/tele.png" alt="menu" width="40">
+    </a>
+  </span>
+  <span>
+    <a href="https://t.me/kcepu_bot" target="_blank" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;">
+      <img src="https://bmkg.xyz/img/bot.png" alt="menu" width="40">
+    </a>
+  </span>
+  <span>
+    <a href="/" target="_self" rel="noopener noreferrer">
+      <img src="https://bmkg.xyz/img/home.png" alt="menu" width="40">
+    </a>
+  </span>
+</div>
+</div>
+	  </div>
   <main class="content">
 
     
-
-        <center><button class="button7" onclick="showPopup('sub-link')"></i>
-SHOW LINK SUB</button></center>
-<div class="filters">
-      <div><div class="button6" onclick="showPopup('menu')">
-        <img src="https://cf.cepu.us.kg/img/options.png
-" alt="menu" width="50">
-</div>
-</div><div>
-<span class="filter-label">Page:</span>
-<select class="service-selector" id="items-per-page">
-  <option value="10">10</option>
-  <option value="25">25</option>
-  <option value="50">50</option>
-  <option value="100">100</option>
+<div class="filters" style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 10px; ">
+    </div>
+        <div style="display: flex; justify-content: center; align-items: center; gap: 5px; flex-wrap: wrap; margin-bottom: 10px;">
+    
+		
+<span>Page:</span>
+<select id="items-per-page" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+    <option value="10" style="background-color: #f0f0f0;">10/Page</option>
+    <option value="25" style="background-color: #f0f0f0;">25/Page</option>
+    <option value="50" style="background-color: #f0f0f0;">50/Page</option>
+    <option value="100" style="background-color: #f0f0f0;">100/Page</option>
+    <option value="250" style="background-color: #f0f0f0;">250/Page</option>
 </select>
+
+		<span class="filter-label">Search:</span>
+    <input type="text" id="search-bar" placeholder="Search ID" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+
 </div>
-      <div>
-<span class="filter-label">Search:</span>
-<input type="text" id="search-bar" placeholder="Search ID" />
-</div>
-</div>
+  <div><center><span>Untuk menghindari penjualan config gratisan maka akan di lakukan pembaruan konfig secara otomatis setiap hari minggu. dan pastikan anda memperharui konfig anda secara berkala</span>
+    </span></center></div><br/><br>
+
+
+
+
     
       <div class="table-container">
     <table>
       <thead>
-        <tr>   
+        <tr>          
           <th>ISP || COUNTRY</th>
           <th>STATUS</th>
           <th>WILDCARD</th>
@@ -1127,25 +1266,7 @@ SHOW LINK SUB</button></center>
  <div class="pagination" id="pagination"></div>
   </div> 
 
-    <div class="popupnav" id="menu">
-<div class="popup-content">
-  <span style="font-family: 'Rajdhani', sans-serif;">CONTACT ADMIN UNTUK ORDER PREMIUM</span>
-  <hr/><br><span class="menu">
     
-        <span>Untuk menghindari penjualan config gratisan maka akan di lakukan pembaruan konfig secara otomatis setiap hari minggu. dan pastikan anda memperharui konfig anda secara berkala</span>
-    </span>
-  <span class="menu">
-    <a href="https://t.me/kcepu877" target="_blank" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;"><img src="https://cepu.us.kg/telegram.png
-" alt="menu" width="30"> ADMIN TELEGRAM</a></span>
-  <span class="menu">
-        <a href="https://wa.me/6287861167414" target="_blank" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;"><img src="https://cepu.us.kg/whatsapp.png
-" alt="menu" width="30"> ADMIN WHATSAPP 1</a></span>
-  <span class="menu">
-    <a href="https://wa.me/6281335135082" target="_blank" rel="noopener noreferrer" style="font-family: 'Rajdhani', sans-serif;"><img src="https://cepu.us.kg/whatsapp.png
-" alt="menu" width="30"> ADMIN WHATSAPP 2</a></span>
-<button class="button7" id="close" onclick="hidePopup('menu')">Close</button>
-    
-</div></div>
 <div class="popup" id="sub-link">
 <div class="popup-content">
   <div class="table-container">
@@ -1159,7 +1280,7 @@ SHOW LINK SUB</button></center>
     </thead>
           <tbody><tr><td>
             <label for="app">APLIKASI:</label>
-          </td><td><select class="service-selector" id="app" class="form-control" required>
+          </td><td><select class="service-selector" id="app" class="form-control" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;" required>
                     <option value="v2ray">V2RAY</option>
                     <option value="v2rayng">V2RAYNG</option>
                     <option value="clash">CLASH</option>
@@ -1171,8 +1292,8 @@ SHOW LINK SUB</button></center>
     </td></tr>
 
             <tr><td><label for="bug">BUG/WILDCARD:</label>
-                </td><td><select class="service-selector" id="bug">
-                    <option value="">NO BUG/WILDCARD</option>        
+                </td><td><select class="service-selector" id="bug" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+                    <option value="gorengan.ndeso.web.id">NO BUG/WILDCARD</option>        
                     <option value="business.blibli.com">business.blibli.com</option>
                     <option value="ava.game.naver.com">ava.game.naver.com</option>
                     <option value="graph.instagram.com">graph.instagram.com</option>
@@ -1186,14 +1307,14 @@ SHOW LINK SUB</button></center>
                     <option value="ads.ruangguru.com">io.ruangguru.com</option>
                     <option value="api.midtrans.com">api.midtrans.com</option>
                 </select></td><td>
-                  <select class="service-selector" id="wildcard" class="form-control">
+                  <select class="service-selector" id="wildcard" class="form-control" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
                     <option value="true">ON</option>
                     <option value="false">OFF</option>
                 </select></td>
             </tr>
             <tr><td>
 <label for="configType">TIPE CONFIG-TLS/NTLS:</label>
-               </td><td> <select class="service-selector" id="configType" class="form-control" required>
+               </td><td> <select class="service-selector" id="configType" class="form-control" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;" required>
                     <option value="vless">VLESS</option>
                     <option value="trojan">TROJAN</option>
                     <option value="ss">SHADOWSOCKS</option>
@@ -1208,7 +1329,7 @@ SHOW LINK SUB</button></center>
     <tr>
  
                 <td><label for="country">NEGARA/LIMIT:</label>
-                </td><td><select class="service-selector" id="country" class="form-control">
+                </td><td><select class="service-selector" id="country" class="form-control" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
                   <option value="RANDOM">RANDOM</option>
     <option value="SG">Singapore</option>
     <option value="US">United States</option>
@@ -1445,13 +1566,13 @@ SHOW LINK SUB</button></center>
     <option value="ZM">Zambia</option>
     <option value="ZW">Zimbabwe</option>
 </select></td><td>
-                  <input class="service-selector" type="number" id="limit" class="form-control" value="10" />
+                  <input class="service-selector" type="number" id="limit" class="form-control" value="10" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;" />
 
         </td></tr>
 <tr><td>
             
-                <label for="link1">GENERATED LINK:</label><br>
-               </td><td> <input class="service-selector" type="text" id="link1" readonly /><br><br/>
+                <label for="link1" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">GENERATED LINK:</label><br>
+               </td><td> <input class="service-selector" type="text" id="link1" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;" readonly /><br><br/>
                 </td><td><button id="copyLink1" onclick="copyLink(this)">COPY LINK</button>
         </td></tr>
 </tbody></table>
@@ -1459,7 +1580,7 @@ SHOW LINK SUB</button></center>
     </div>
   </div>
   <footer class="footer">
-    <h2><p>&copy; 2024 FREE PROXY CF LIFETIME</p></h2>
+    <h2>&copy; 2024 FREE PROXY CF LIFETIME</h2>
   </footer>
 <script>
 
@@ -1487,7 +1608,7 @@ function generateLinks() {
     if (!bug) {
       wildcard = "false"; // Atur wildcard menjadi false jika bug tidak diisi
     }
-    link1 = `https://kang.cepu.us.kg/vpn/${app}?type=${configType}&bug=${bug}&tls=${tls}&wildcard=${wildcard}&limit=${limit}&country=${country}`;
+    link1 = `https://gorengan.ndeso.web.id/api/${app}?type=${configType}&bug=${bug}&tls=${tls}&wildcard=${wildcard}&limit=${limit}&country=${country}`;
   }
 
   // Tampilkan link pada input box
@@ -1573,7 +1694,7 @@ function uuidv4() {
 }
 
   // URL untuk mendapatkan proxy list
-  fetch("https://cf.cepu.us.kg/update_proxyip.txt")
+  fetch("https://bmkg.xyz/update_proxyip.txt")
     .then(response => response.text())
     .then(data => {
       const allProxies = data.split("\n").filter(line => line.trim() !== "");
@@ -1629,7 +1750,7 @@ function uuidv4() {
   // Fungsi untuk mengecek status proxy
   function checkProxyStatus(ip, port, statusElement) {
   // Menampilkan indikator loading saat memeriksa status
-  statusElement.innerHTML = '<strong><i class="fas fa-spinner fa-spin loading-icon"></i>Loading...</strong>';
+  statusElement.innerHTML = '<strong><i class="fas fa-spinner fa-spin loading-icon"></i></strong><div class="warna-text">Loading...</div>';
   statusElement.style.color = 'green';
     
   const startTime = performance.now(); // Mencatat waktu awal
@@ -1643,7 +1764,7 @@ function uuidv4() {
       let latency = endTime - startTime; // Menghitung latency dalam ms
 
       // Memperkecil nilai latency, misalnya dibagi dengan 10
-      latency = latency / 5; // Faktor pembagi untuk memperkecil nilai latency
+      latency = latency / 100; // Faktor pembagi untuk memperkecil nilai latency
 
       // Membuang bagian setelah desimal, hanya menyisakan nilai integer
       const latencyString = Math.floor(latency); // Hanya ambil angka bulat (membuang bagian desimal)
@@ -1671,7 +1792,6 @@ function uuidv4() {
       statusElement.style.color = 'cyan';
     });
 }
-
 
 
 
@@ -1722,12 +1842,10 @@ function uuidv4() {
             <span class="flag-circle flag-icon flag-icon-${id.toLowerCase()}"></span>
             </div></td>
           <td>
-            <span class="text-'+color+'">
-            <span id="status-${ip}-${port}"><div class="rainbow-text">LOADING...</div></span>
-            </span>
+            <span id="status-${ip}-${port}"><div class="warna-text">LOADING...</div></span>
           </td>
-          <td><select class="service-selector">
-          <option value="">NO WILDCARD</option>
+          <td><select class="service-selector" style="font-family: 'Rajdhani', sans-serif; padding: 10px; background-color: rgba(0, 71, 200, 0.65); color: #fff; border: 1px solid #000;">
+          <option value="gorengan.ndeso.web.id">NO WILDCARD</option>
           <option value="business.blibli.com">business.blibli.com</option>          
           <option value="ava.game.naver.com">ava.game.naver.com</option>
           <option value="graph.instagram.com">graph.instagram.com</option>
@@ -1747,11 +1865,11 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <hr/>VLESS SERVER1<br>
-      PATH: /${ip}-${port}<br>
-      <button class="copy-vless">COPY VLESS SERVER1</button>
-      <br><hr/>VLESS SERVER2<br>
-      PATH: /${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS SERVER2</button>
+      <hr/>VLESS PATH SIMPLE<br>
+      PATH: /Free-CF-Proxy-${id}${cons}<br>
+      <button class="copy-vless">COPY VLESS SIMPLE</button>
+      <br><hr/>VLESS PATH RIBET<br>
+      PATH: /Free-CF-Proxy-${ip}-${port}<br><button class="copy-vless-clash">COPY VLESS RIBET</button>
       <hr/>
       <button class="button8" onclick="hidePopup('vtls${ip}-${port}')">Close</button> 
 </div>
@@ -1762,11 +1880,11 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <hr/>TROJAN SERVER1<br>
-      PATH: /${ip}-${port}<br>
-      <button class="copy-trojan">COPY TROJAN SERVER1</button>
-      <br><hr/>TROJAN SERVER2<br>
-      PATH: /${ip}-${port}<br><button class="copy-trojan-clash877">COPY SERVER2 SERVER2</button> 
+      <hr/>TROJAN PATH SIMPLE<br>
+      PATH: /Free-CF-Proxy-${id}${cons}<br>
+      <button class="copy-trojan">COPY TROJAN SIMPLE</button>
+      <br><hr/>TROJAN PATH RIBET<br>
+      PATH: /Free-CF-Proxy-${ip}-${port}<br><button class="copy-trojan-clash877">COPY RIBET RIBET</button> 
       <hr/>
       <button class="button8" onclick="hidePopup('trojan${ip}-${port}')">Close</button> 
     </div>
@@ -1777,12 +1895,12 @@ function uuidv4() {
       » ISP         : ${isp}<br>
       » Country     :${id}&nbsp;<span class="flag-icon flag-icon-${id.toLowerCase()}"></span><br>
       » IP:PORT      : ${ip}-${port}<br>
-      <hr/>SHADOWSOCK SERVER1<br>
-      PATH: /${ip}-${port}<br>
-      <button class="copy-ss">COPY SHADOWSOCK SERVER1</button>
-      <br><hr/>SHADOWSOCK SERVER2<br>
-      PATH: /${ip}-${port}<br>
-      <button class="copy-ss1">COPY SHADOWSOCK SERVER2</button>
+      <hr/>SHADOWSOCK PATH SIMPLE<br>
+      PATH: /Free-CF-Proxy-${id}${cons}<br>
+      <button class="copy-ss">COPY SHADOWSOCK SIMPLE</button>
+      <br><hr/>SHADOWSOCK PATH RIBET<br>
+      PATH: /Free-CF-Proxy-${ip}-${port}<br>
+      <button class="copy-ss1">COPY SHADOWSOCK RIBET</button>
      <hr/> <button class="button8" onclick="hidePopup('ss${ip}-${port}')">Close</button> 
     </div>
     </div></td>
@@ -1795,11 +1913,11 @@ function uuidv4() {
     const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const VLESS = `vless://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const VLESS = `vless://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy-${id}${cons}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(VLESS);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY VLESS SERVER1 SUKSES!',
+      text: 'COPY VLESS SIMPLE SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1811,14 +1929,14 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
 });
 
 row.querySelector('.copy-vless-clash').addEventListener('click', () => {
-    const host = "wong.ndeso.web.id";
+    const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const VLESSC = `vless://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const VLESSC = `vless://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
   navigator.clipboard.writeText(VLESSC);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY VLESS SERVER2 SUKSES!',
+      text: 'COPY VLESS RIBET SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1833,11 +1951,11 @@ row.querySelector('.copy-trojan').addEventListener('click', () => {
     const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const TROJAN = `trojan://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const TROJAN = `trojan://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy-${id}${cons}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(TROJAN);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY TROJAN SERVER1 SUKSES!',
+      text: 'COPY TROJAN SIMPLE SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1850,14 +1968,14 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
 
 row.querySelector('.copy-trojan-clash877').addEventListener('click', () => {
     const selectedService = row.querySelector('.service-selector').value || "xvp.bmkg.xyz";
-    const host = "wong.ndeso.web.id";
+    const host = "server.ndeso.web.id";
     const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const TROJANC877 = `trojan://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const TROJANC877 = `trojan://${uuidv4()}@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     
     navigator.clipboard.writeText(TROJANC877);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY TROJAN SERVER2 SUKSES!',
+      text: 'COPY TROJAN RIBET SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1872,11 +1990,11 @@ row.querySelector('.copy-ss').addEventListener('click', () => {
     const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const SS = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const SS = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy-${id}${cons}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(SS);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY SHADOWSOCK SERVER1 SUKSES!',
+      text: 'COPY SHADOWSOCK SIMPLE SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
@@ -1888,14 +2006,14 @@ const domain = selectedService === host ? host : `${selectedService}.${host}`;
 });
 
 row.querySelector('.copy-ss1').addEventListener('click', () => {
-    const host = "wong.ndeso.web.id";
+    const host = "server.ndeso.web.id";
 const selectedService = row.querySelector('.service-selector').value || host;
 const domain = selectedService === host ? host : `${selectedService}.${host}`;
-    const SS1 = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2F${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
+    const SS1 = `ss://bm9uZTo1ZDJlYmQyYS05Y2I5LTRkMWItYWY1NS04NjE3ZDNlODFmMzk%3D@${selectedService}:443?encryption=none&type=ws&host=${domain}&path=%2FFree-CF-Proxy-${ip}-${port}&security=tls&sni=${domain}#(${selectedService})+${id}+${isp}`;
     navigator.clipboard.writeText(SS1);
     Swal.fire({
       title: 'Berhasil!',
-      text: 'COPY SHADOWSOCK SERVER2 SUKSES!',
+      text: 'COPY SHADOWSOCK RIBET SUKSES!',
       icon: 'success',
       background: 'rgba(6, 18, 67, 0.89)', // Warna latar belakang (biru pucat)
       color: 'red', // Warna teks
